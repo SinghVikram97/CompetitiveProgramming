@@ -12,8 +12,8 @@ int main()
     }
     int jack[n+1];
     int jill[n+1];
-    jack[0]=0;
-    jill[0]=0;
+    jack[0]=1;
+    jill[0]=1;
     /// nth index denotes no of ways to reach there
     for(int i=1;i<=3;i++)
     {
