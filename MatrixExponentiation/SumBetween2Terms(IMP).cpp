@@ -52,9 +52,9 @@ ll compute(ll n)
         ll ans=0;
         for(int i=0;i<n;i++)
         {
-            ans=(ans+((f[i]%m)*(c[i]%m))%m)%m;
+            ans=((ans%m)+(f[i]%m))%m;
         }
-        return ans;
+        return ans%m;
     }
     /// Construct F1 vector
     vector<ll> F1(k+2); /// 1 based indexing
@@ -62,9 +62,9 @@ ll compute(ll n)
     ll ans=0;
     for(int i=0;i<k;i++)
     {
-        ans=(ans+((f[i]%m)*(c[i]%m))%m)%m;
+        ans=((ans%m)+(f[i]%m))%m;
     }
-    F1[1]=ans;
+    F1[1]=ans%m;
     for(int i=2;i<=k+1;i++)
     {
         F1[i]=f[i-2];
