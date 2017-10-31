@@ -16,6 +16,7 @@ bool can(vector<ll> v,int m,long long mid)
       }
       students++;
   }  
+  /// Minimum toh sabko atleast ek book deke hi niklega
   if(i==n)   /// Wrong answer if we check if(student==m && i==n)    Read this https://stackoverflow.com/questions/36720228/allocate-minimum-number-of-pages-to-each-student
    {
       return true;
