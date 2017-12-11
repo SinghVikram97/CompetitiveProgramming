@@ -27,7 +27,7 @@ void stepsSee(string source,string destination,string helper,int num_of_discs)
     else
     {
         stepsSee(source,helper,destination,num_of_discs-1);
-        cout<<"Move "<<num_of_discs<<"th disc from "<<source<<" to "<<helper<<endl;
+        cout<<"Move "<<num_of_discs<<"th disc from "<<source<<" to "<<destination<<endl;
         stepsSee(helper,destination,source,num_of_discs-1);
     }
 }
