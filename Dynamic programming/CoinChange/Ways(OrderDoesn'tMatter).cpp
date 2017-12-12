@@ -3,7 +3,7 @@
 using namespace std;
 int number_of_ways(int total_value,vector<int> coins,int index)
 {
-    if(total_value>0 && index==coins.size())
+    if(total_value>0 && index==coins.size()) /// Run out of coins but not money
     {
         return 0;
     }
