@@ -27,8 +27,8 @@ void solve(int n,int i)
        diagonal_sum[i+j]=1;
        solve(n,i+1);
        /// Backtrack
-       column[j]=0;
-       diagonal_difference[i-j+(n-1)]=0;
+       column[j]=0;                        
+       diagonal_difference[i-j+(n-1)]=0;  /// Can't place these 3 statements outside wrong ans for n=3
        diagonal_sum[i+j]=0;
     }
   }
