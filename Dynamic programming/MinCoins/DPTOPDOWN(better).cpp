@@ -5,7 +5,7 @@
 using namespace std;
 #define max 1000000
 /// Can't use INT_MAX as 1+INT_MAX returns negative value
-int dp[10000];
+int dp[10000];  /// dp[i] represents minimum coins for amount i
 int min_coins(vector<int> coins,int amount)
 {
     //cout<<amount<<endl;
