@@ -3,29 +3,33 @@
 ///  15
 #include<bits/stdc++.h>
 using namespace std;
+#define max 1000000
+/// Can't use INT_MAX as 1+INT_MAX returns negative value
 int min_coins(vector<int> coins,int amount)
 {
+    //cout<<amount<<endl;
   /// Base cases
-   if(amount==0) /// Zero ways to give 0 ruppees
+   if(amount==0) /// Zero ways to give 0 ruppees             /// 15,8,1,0
    {
      return 0;
    }
    else if(amount<0)
    {
-     return INT_MAX;
+     return max;
    }
   /// Can pick any one coin
-  int ways=INT_MAX,current_ways;
+  int ways=max,current_ways;
   for(int i=0;i<coins.size();i++)
   {
     /// Pick ith coin and calculate no of ways for amount-coins[i]
-    current_ways=min_coins(coins,amount-coins[i]);
+    current_ways=1+min_coins(coins,amount-coins[i]);
     /// If less coins required than previous calculated update
     if(current_ways<ways)
     {
       ways=current_ways;
     }
   }
+  return ways;
 }
 int main()
 {
