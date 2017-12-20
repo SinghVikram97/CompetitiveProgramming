@@ -6,7 +6,7 @@ int maximum_value(int capacity,vector<int> size,vector<int> value)
    dp[0]=0; /// 0 capacity means it can't store anything
    for(int i=1;i<=capacity;i++)
    {
-     dp[i]=-1; /// Store minimum as we want to store maximum in it
+     dp[i]=0; /// Store minimum as we want to store maximum in it
    }
    for(int i=1;i<=capacity;i++)
    {
