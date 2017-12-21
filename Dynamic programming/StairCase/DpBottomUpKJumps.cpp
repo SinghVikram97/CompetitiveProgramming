@@ -1,3 +1,4 @@
+Time Complexity= O(n*k)
 #include<bits/stdc++.h>
 using namespace std;
 /// f(n)=f(n-1)+f(n-2)+f(n-3)+f(n-4)............f(n-k)
