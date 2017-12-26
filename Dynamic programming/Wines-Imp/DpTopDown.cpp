@@ -1,5 +1,6 @@
 ///2,3,5,4,1 - 55
 ///2,3,5,1,4 - 50
+/// 2,3,5-23
 #include<bits/stdc++.h>
 using namespace std;
 int dp[100][100];
@@ -43,5 +44,15 @@ int main()
    {
      cin>>v[i];
    }
-   cout<<maximum_cost(v,0,n-1);
+   cout<<maximum_cost(v,0,n-1)<<endl;
+   /// dp matrix is upper triangular because below main diagonal beg>end
+   /// So we have to fill 2d matrix diagonal wise
+   for(int i=0;i<n;i++)
+   {
+     for(int j=0;j<n;j++)
+     {
+       cout<<dp[i][j]<<" ";
+     }
+     cout<<endl;
+   }
 }
