@@ -1,3 +1,6 @@
+///-3 3 19 7
+/// Wrong for -3 3
+/// Wrong for all -ve numbers if reverse order of i conditions
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
@@ -10,25 +13,28 @@ int main()
   {
      cin>>v[i];
   }
-  ll max_sum=v[0];
-  ll cur_sum=v[0];
-  int start=0,end=0,s=0;
-  for(int i=1;i<n;i++)
+  ll max_sum=INT_MIN;
+  ll cur_sum=0;
+  int start,end;
+  for(int i=0;i<n;i++)
   {
-     cur_sum=cur_sum+v[i];
-     //cout<<cur_sum<<endl;
-     if(cur_sum>max_sum)         /// This if before below if to handle all -ve numbers -2 -1 -3 = -1
-     {
-       start=s;
-       end=i;                    
+    /// cur_sum contains sum upto previous index
+    /// if it is negative or 0 so use of expanding our subarray
+    if(cur_sum<=0)
+    {
+       cur_sum=v[i];  /// Start from this element
+       start=i;
+    }
+    else
+    {
+       cur_sum=cur_sum+v[i];  /// Expand our subarray
+    }
+    if(cur_sum>max_sum)     /// Compare with maximum sum at each step after updating
+    {
        max_sum=cur_sum;
-     }
-     if(cur_sum<=0)              /// If cur_sum becomes less than equal to zero it means no fyada in taking it because it will already reduce the coming nos sum
-     {
-       s=i+1;
-       cur_sum=0;
-     }
+       end=i;
+    }
   }
   cout<<"Maximum sum is "<<max_sum<<endl;
-  cout<<"Subarray from "<<start<<" to "<<end;
+  cout<<"Subarray with maximum sum is from "<<start<<" to "<<end;
 }
