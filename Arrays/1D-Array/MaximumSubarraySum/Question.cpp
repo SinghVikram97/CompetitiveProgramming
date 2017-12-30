@@ -1,2 +1,2 @@
 https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
-https://hack.codingblocks.com/practice/p/59/444
+https://leetcode.com/problems/maximum-subarray/description/
