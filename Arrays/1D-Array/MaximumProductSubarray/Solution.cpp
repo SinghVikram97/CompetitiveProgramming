@@ -1,3 +1,10 @@
+/// 4
+/// 2 3 -3 -4         /// Construct dp_max array for this.
+/// 3
+/// 2 -3 4
+It is not similar to find the max sum in an array. 
+In max sum we can discard the previous sum as soon as it is zero.
+In multipication , we can not do it as product of two negative numbers become positive numbers
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
@@ -27,10 +34,8 @@ int main()
          dp_min[i]=min(v[i],v[i]*dp_max[i-1]);
       }
    }
-   ll ans=dp_max[1];
-   for(int i=2;i<=n;i++)
+   for(int i=0;i<=n;i++)
    {
-       ans=max(dp_max[i],ans);
+       cout<<dp_max[i]<<" ";
    }
-   cout<<ans;
 }
