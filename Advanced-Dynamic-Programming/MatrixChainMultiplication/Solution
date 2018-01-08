@@ -1,0 +1,47 @@
+/// ABCD
+/// We consider only A|BCD, AB|CD, ABC|D
+/// Not A(BC)D because in this we multiply BC and then multiply with either A (ABC|D) or with D (A|BCD)
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+ll dp[1005][1005];
+ll minimum_operations(vector<int> order,int number_of_matrices,int i,int j)
+{
+   if(i==j)  /// Single matrice
+   {
+     return 0;
+   }
+   if(i>j)  /// Impossible situation
+   {
+     return INT_MAX;
+   }
+   if(dp[i][j]==-1)
+   {
+     /// Divide into 2 parts from i to k and k+1 to j
+     ll result=INT_MAX;
+     for(int k=i;k<=j-1;k++)
+     {
+      result=min(result,minimum_operations(order,number_of_matrices,i,k)+minimum_operations(order,number_of_matrices,k+1,j)+(order[i]*order[k+1]*order[j+1]));
+     }
+     dp[i][j]=result;
+   }
+   return dp[i][j];  
+}
+int main()
+{
+   for(int i=0;i<1005;i++)
+   {
+     for(int j=0;j<1005;j++)
+     {
+       dp[i][j]=-1;
+     }
+   }
+   int number_of_matrices;
+   cin>>number_of_matrices;
+   vector<int> order(number_of_matrices+1);       /// 10,20,30,40 means 3 matrices of order 10*20,20*30,30*40
+   for(int i=0;i<=number_of_matrices;i++)
+   {
+     cin>>order[i];
+   }
+   cout<<minimum_operations(order,number_of_matrices,0,number_of_matrices-1);
+}
