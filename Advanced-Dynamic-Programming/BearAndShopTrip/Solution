@@ -1,0 +1,90 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+#define ld long double
+ld dist[50][50];
+ld dp[1<<13][50];    /// Time Complexity or space is (2^number of ingredients)*number of shops
+ld distance(pair<int,int> p1,pair<int,int> p2)
+{
+   ld dx=p1.first-p2.first;
+   ld dy=p1.second-p2.second;
+   return sqrt(dx*dx+dy*dy);
+}
+ld minimum_distance(vector<pair<int,int> > shop,vector<int> ingredients_of_shop,int number_of_ingredients,int mask,int index)
+{
+  if(mask==(1<<number_of_ingredients)-1 && index==0)  /// All ingredients picked and returned to kitchen
+  {
+     return 0; /// Aur cost nhi lgegi
+  }
+  if(dp[mask][index]==-1)
+  {
+    dp[mask][index]=INT_MAX;
+    for(int i=0;i<shop.size();i++)        /// i=0 means can visit kitchen from current index
+    {
+     /// Visit i from current index if it is useful
+     if((mask|ingredients_of_shop[i])!=mask||(i==0))
+     {
+       dp[mask][index]=min(dp[mask][index],dist[index][i]+minimum_distance(shop,ingredients_of_shop,number_of_ingredients,(mask|ingredients_of_shop[i]),i));
+     }
+    }
+  }
+  return dp[mask][index];
+}
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--)
+  {
+    for(int i=0;i<(1<<13);i++)
+    {
+        for(int j=0;j<50;j++)
+        {
+            dp[i][j]=-1;
+        }
+    }
+    int number_of_shops,number_of_ingredients;
+    cin>>number_of_shops>>number_of_ingredients;
+    vector<pair<int,int> > shop(number_of_shops+1);
+    shop[0]=(make_pair(0,0));
+    for(int i=1;i<=number_of_shops;i++)
+    {
+      int x,y;
+      cin>>x>>y;
+      shop[i]=make_pair(x,y);
+    }
+    vector<int> ingredients_of_shop(number_of_shops+1);
+    ingredients_of_shop[0]=0;
+    string temp;
+    int possible=0;
+    for(int i=1;i<=number_of_shops;i++)
+    {
+      cin>>temp;
+      reverse(temp.begin(),temp.end());
+      int temp_mask=0;
+      for(int j=0;j<temp.length();j++)
+      {
+         temp_mask=temp_mask+(1<<j)*(temp[j]-'0');
+      }
+      possible=possible|temp_mask;
+      ingredients_of_shop[i]=temp_mask;
+    }
+    if(possible!=(1<<number_of_ingredients)-1)
+    {
+      cout<<-1;
+      continue;
+    }
+     memset(dist,0,sizeof(dist));
+    ///Calculate distance between respective kitchens or fill adjacency matrix
+    for(int i=0;i<=number_of_shops;i++)
+    {
+      for(int j=0;j<=number_of_shops;j++)
+      {
+         dist[i][j]=distance(shop[i],shop[j]);
+      }
+    }
+    
+    ld ans=minimum_distance(shop,ingredients_of_shop,number_of_ingredients,0,0); /// 1st 0 is mask ie 0 ingredients from starting and 2nd zero is starting shop ka index ie kitchen
+    cout<<fixed<<setprecision(9)<<ans<<endl;
+  }
+}
