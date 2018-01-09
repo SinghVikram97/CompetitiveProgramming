@@ -1,0 +1,60 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+ll dp[2005][2005][8];
+ll lcs(vector<ll> first_sequence,vector<ll> second_sequence,ll k,ll i,ll j)
+{
+   if(i==first_sequence.size())
+   {
+      return 0;
+   }
+   if(j==second_sequence.size())
+   {
+     return 0;
+   }
+   if(dp[i][j][k]!=-1)
+   {
+     return dp[i][j][k];
+   }
+   else(dp[i][j][k]==-1);
+   {
+      ll result=INT_MIN;
+      if(first_sequence[i]==second_sequence[j])
+      {
+       result=max(result,1+lcs(first_sequence,second_sequence,k,i+1,j+1));
+       dp[i][j][k]=result;
+      }
+      else
+      {
+       /// Leave current character of 1st sequence
+       result=max(result,lcs(first_sequence,second_sequence,k,i+1,j));
+       /// Leave current character of 2nd sequence
+       result=max(result,lcs(first_sequence,second_sequence,k,i,j+1));
+       /// Change current character of 1st sequence to match current character of 2nd sequence or vice versa
+       /// Make both characters same
+       if(k!=0)
+       {
+          result=max(result,1+lcs(first_sequence,second_sequence,k-1,i+1,j+1));
+       }
+       dp[i][j][k]=result;
+     }
+     return dp[i][j][k];
+   }
+}
+int main()
+{
+  memset(dp,-1,sizeof(dp));
+  ll length1,length2,k;
+  cin>>length1>>length2>>k;
+  vector<ll> first_sequence(length1);
+  vector<ll> second_sequence(length2);
+  for(ll i=0;i<length1;i++)
+  {
+     cin>>first_sequence[i];
+  }
+  for(ll i=0;i<length2;i++)
+  {
+     cin>>second_sequence[i];
+  }
+  cout<<lcs(first_sequence,second_sequence,k,0,0);
+}
