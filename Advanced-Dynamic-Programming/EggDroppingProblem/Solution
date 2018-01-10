@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long int
+ll dp[60][60];
+int minimum_attempts_in_worst_case(int no_of_eggs,int number_of_floors)
+{
+  if(number_of_floors==1)  /// Only check for current floor
+  {
+    return 1;
+  }
+  if(number_of_floors==0)  /// 0 floors means 0 trials
+  {
+    return 0;
+  }
+  if(no_of_eggs==1)  /// Linearly check from bottom
+  {
+    return number_of_floors;
+  }
+  if(dp[no_of_eggs][number_of_floors]==-1)
+  {
+    /// Can start at any floor
+    int ans=INT_MAX;
+    for(int x=1;x<=number_of_floors;x++)
+    {
+     /// If egg breaks at current floor x then
+     /// Min of max in worst case
+     ans=min(ans,max(1+minimum_attempts_in_worst_case(no_of_eggs-1,x-1),1+minimum_attempts_in_worst_case(no_of_eggs,number_of_floors-x)));
+    }
+    dp[no_of_eggs][number_of_floors]=ans;
+  }
+  return dp[no_of_eggs][number_of_floors];
+}
+int main()
+{
+  int t;
+  cin>>t;
+  while(t--)
+  {
+    for(int i=0;i<20;i++)
+    {
+      for(int j=0;j<60;j++)
+      {
+         dp[i][j]=-1;
+      }
+    }
+    int number_of_floors,no_of_eggs;
+    cin>>no_of_eggs>>number_of_floors;
+    cout<<minimum_attempts_in_worst_case(no_of_eggs,number_of_floors)<<endl;
+  }
+}
