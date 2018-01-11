@@ -53,17 +53,16 @@ void Graph<T>::BFS_Program(T startingVertex,map<T,bool> &visited)  /// Passing b
        myQueue.pop();
        cout<<frontElement<<" ";
        /// Push children of front element in the queue
-       for(auto it=adjList.begin();it!=adjList.end();it++)
+       for(auto it=adjList[frontElement].begin();it!=adjList[frontElement].end();it++)
        {
-           for(auto it1=it->second.begin();it1!=it->second.end();it1++)
-           {
+
                /// If not visited add to queue
-               if(!visited[(*it1)])
+               if(!visited[(*it)])
                {
-                   myQueue.push((*it1));
-                   visited[(*it1)]=true;
+                   myQueue.push((*it));
+                   visited[(*it)]=true;
                }
-           }
+
        }
    }
 }
