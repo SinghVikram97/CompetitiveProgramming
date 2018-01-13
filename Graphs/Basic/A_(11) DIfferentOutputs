@@ -1,0 +1,13 @@
+
+Both are valid DFS algorithms. 
+A DFS does not specify which node you see first. 
+It is not important because the order between edges is not defined [remember: edges are a set usually]. 
+The difference is due to the way you handle each node's children.
+
+In the iterative approach: You first insert all the elements into the stack - and then handle the head of the stack [which is the last node inserted] - thus the first node you handle is the last child.
+
+In the recursive approach: You handle each node when you see it. Thus the first node you handle is the first child.
+
+To make the iterative DFS yield the same result as the recursive one - you need to add elements to the stack in reverse order [for each node, insert its last child first and its first child last]
+
+https://stackoverflow.com/questions/9201166/iterative-dfs-vs-recursive-dfs-and-different-elements-order
