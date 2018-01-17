@@ -1,3 +1,7 @@
+https://drive.google.com/open?id=18MvKc3DnCJpa9B4ir5AHa_8pvH8AGrK_
+https://drive.google.com/open?id=1N6axKRhBbt2Eu-4EghikXELYCFOBOPli
+https://drive.google.com/open?id=1LF3VP9FBx8F9Tuyo3sIdlVm3DiKoez3A
+https://drive.google.com/open?id=1f2gk02xwEGu9yCawjVJglx_ApMmibqtB
 #include<bits/stdc++.h>
 using namespace std;
 template<typename T>
