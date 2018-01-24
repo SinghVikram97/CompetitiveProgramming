@@ -178,6 +178,8 @@ void Graph<T>::kruskalMST()
        edgeIndex++;
    }
    /// Check if can form the MST
+   /// MST WILL BE FORMED EVERYTIME
+   /// EVERY GRAPH HAS AN MST EXCEPT DISCONNECTED GRAPH
    if(edgesInMst!=vertices.size()-1)
    {
        cout<<"Can't form MST"<<endl;
