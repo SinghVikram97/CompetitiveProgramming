@@ -157,7 +157,8 @@ void Graph<T>::kruskalMST()
    int edgesInMst=0;
    int edgeIndex=0;
    vector<pair<pair<T,T>,int> > mst;
-   while(edgesInMst<=vertices.size()-1 && edgeIndex<edgeList.size())
+   long long int totalDistance=0;
+   while(edgesInMst<vertices.size()-1 && edgeIndex<edgeList.size()) /// Breaks when edges in Mst equals E-1
    {
        /// Find if vertices in same set or not
        T representativeV1=s.find_set(edgeList[edgeIndex].first.first);
@@ -174,6 +175,7 @@ void Graph<T>::kruskalMST()
            edgesInMst++;
            /// Add edge in mst
            mst.push_back(make_pair(make_pair(edgeList[edgeIndex].first.first,edgeList[edgeIndex].first.second),edgeList[edgeIndex].second));
+           totalDistance=totalDistance+edgeList[edgeIndex].second;
        }
        edgeIndex++;
    }
@@ -193,6 +195,8 @@ void Graph<T>::kruskalMST()
        cout<<mst[i].first.first<<" "<<mst[i].first.second<<" "<<mst[i].second<<endl;
      }
    }
+   cout<<endl;
+   cout<<"Total distance is "<<totalDistance;
 }
 int main()
 {
