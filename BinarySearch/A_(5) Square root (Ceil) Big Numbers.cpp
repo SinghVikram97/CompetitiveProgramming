@@ -1,5 +1,6 @@
 /// TRY FOR 1000000000000000000
 /// TRY FOR 10 wrong answer if we don't use ceil and double
+https://drive.google.com/open?id=1aj8nWAMmaj_iI9Sgi0G568vjd6cqvI-m
 #include<bits/stdc++.h>
 using namespace std;
 #define ll long long int
