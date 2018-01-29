@@ -12,9 +12,9 @@ ll square_root(ll n)
     while(s<=e)
     {
         mid=(s+e)/2;
-        if(mid==n/mid)
+        if(mid==n/mid)         /// By default division is floor
             return mid;
-        else if(mid<n/mid)
+        else if(mid<n/mid)     /// By default division is floor
         {
             ans=mid;
             s=mid+1;
