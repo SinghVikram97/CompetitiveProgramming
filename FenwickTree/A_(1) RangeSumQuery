@@ -1,0 +1,68 @@
+https://drive.google.com/open?id=1Fw1LxBB9CPVb72M3RVwheySLsZw9wy8n
+https://drive.google.com/open?id=1rud3ZvSvuGLrLXFV8tZS3zqLtsoS_sSo
+https://drive.google.com/open?id=1BERqin7QI8LG5uHX_I-U9831O80ujrqA
+https://drive.google.com/open?id=1sBK-xqD0dkzgeP2GON6WtWZbKfC7GBud
+https://drive.google.com/open?id=1kr1c9NkVbqSd_6fHGmJozmOHypAbw50m
+https://drive.google.com/open?id=1TKvdeM9rJ17UEtgB3P74UhUdPxoZxc5S
+https://drive.google.com/open?id=1GwHzyN8z6VJEbNvhMya_oAvyBW4QCjZi
+https://drive.google.com/open?id=1aipntg-1yOhFVQI1z2w8XOlPyQn7WUKU
+https://drive.google.com/open?id=1HjZP5ljiiJmim2QC_dDjWEBhr9p1hAgU
+https://drive.google.com/open?id=19EafTeuuzPlAurli1wf_ht3wVhxAayua
+
+
+#include<bits/stdc++.h>
+using namespace std;
+void update(vector<int> &BIT,vector<int> &v,int index,int inc)
+{
+    int n=v.size()-1; /// As 1 based indexing
+    /// Start from index i and go to i+(i&(-i)) till n
+    /// Update those which include index element in it's range
+    int i=index;
+    while(i<=n)
+    {
+        BIT[i]+=inc;
+        i=i+(i&(-i));
+    }
+    return;
+}
+int query(vector<int> &BIT,vector<int> &v,int index)
+{
+    /// Start from index i and go backward to i-(i&(-i)) as we have to combine
+    /// Results of many node
+    int i=index;
+    int sum=0;
+    while(i>0)
+    {
+        sum=sum+BIT[i];
+        i=i-(i&(-i));
+    }
+    return sum;
+}
+int main()
+{
+    cout<<"Enter number of elements in array"<<endl;
+    int n;
+    cin>>n;
+    vector<int> v(n+1);
+    vector<int> BIT(n+1);
+    /// 1 based indexing for both
+    cout<<"Enter elements of array"<<endl;
+    for(int i=1;i<=n;i++)
+    {
+        cin>>v[i];
+    }
+    for(int i=1;i<=n;i++)
+    {
+        update(BIT,v,i,v[i]);
+    }
+    cout<<"Enter number of queries"<<endl;
+    int q;
+    cin>>q;
+    while(q--)
+    {
+        cout<<"Enter range"<<endl;
+        int l,r;
+        cin>>l>>r;
+        cout<<query(BIT,v,r)-query(BIT,v,l-1)<<endl;
+    }
+}
