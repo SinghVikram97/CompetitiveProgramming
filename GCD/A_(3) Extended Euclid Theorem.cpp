@@ -1,3 +1,5 @@
+https://drive.google.com/open?id=1dgxDQ3lH6XzuhfNrYrGlFYQSxOS51GYk
+https://drive.google.com/open?id=1SXn4eIvEymlJoA7gBmGR8nxfHQkRDmAR
 #include<bits/stdc++.h>
 using namespace std;
 pair<int,int> gcd(int a,int b)
