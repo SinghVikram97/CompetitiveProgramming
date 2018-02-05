@@ -1,28 +1,25 @@
-/// Works if a and b are coprime ie. gcd(a,b)=1
+https://drive.google.com/open?id=17i67uV5gUpELfQ60ukOY8cjA6ayOxqko
+https://drive.google.com/open?id=1VnjYfG6hRsLnQ2pQUyH9FxfcdTk8SDFF
 #include<bits/stdc++.h>
 using namespace std;
-#define ll long long int
-ll gcd(ll a,ll b,ll &x,ll &y)
+pair<int,int> gcd(int a,int b)
 {
     if(b==0)
     {
-        x=1;
-        y=0;
-        return a;
+        return make_pair(1,0);
     }
-    ll x1,y1;
-    ll ans=gcd(b,a%b,x1,y1);
-    x=y1;
-    y=x1-floor((double)a/b)*y1;
-    return ans;
+    int currentX,currentY;
+    pair<int,int> nextXY;
+    nextXY=gcd(b,a%b);
+    currentX=nextXY.second;
+    currentY=nextXY.first-(floor(a/b)*nextXY.second);
+    return make_pair(currentX,currentY);
 }
 int main()
 {
-  ll a,b;
-  cin>>a>>b;
-  ll x,y;
-  cout<<gcd(a,b,x,y)<<endl;
-  cout<<x<<" "<<y<<endl;
-  cout<<(x*a)+(b*y)<<endl;
-  cout<<(y+a)%a<<" is the modulo inverse of "<<b<<" wrt to "<<a<<endl;
+    int a,m;
+    cin>>a>>m;
+    pair<int,int> ans=gcd(a,m);
+    /// Check for 6 and 7 with simple ans.first
+    cout<<(ans.first+m)%m<<endl;
 }
