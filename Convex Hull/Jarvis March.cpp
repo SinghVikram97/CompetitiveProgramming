@@ -1,3 +1,5 @@
+O(n^2)
+    
 https://www.geeksforgeeks.org/convex-hull-set-1-jarviss-algorithm-or-wrapping/
 
 https://drive.google.com/open?id=1VtQtDqPPJSiWMAza2n6Gx5OWZqm2ANrY
