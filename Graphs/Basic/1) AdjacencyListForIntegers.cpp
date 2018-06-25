@@ -1,5 +1,6 @@
 /// https://drive.google.com/open?id=1Gcd1qHTb-JgSmLrG5MjQ_2zyKuX2zA5Y
 /// https://drive.google.com/open?id=124i_iPsmqCO0hT5r4ryGjQDdWZznRLwp
+[Adjacency List vs Matrix]{https://i.stack.imgur.com/ioNmx.jpg}
 #include<bits/stdc++.h>
 using namespace std;
 class Graph{
