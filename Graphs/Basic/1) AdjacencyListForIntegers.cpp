@@ -1,6 +1,16 @@
 /// https://drive.google.com/open?id=1Gcd1qHTb-JgSmLrG5MjQ_2zyKuX2zA5Y
 /// https://drive.google.com/open?id=124i_iPsmqCO0hT5r4ryGjQDdWZznRLwp
 // Adjacency List vs Matrix--->  https://i.stack.imgur.com/ioNmx.jpg 
+
+This is usually a space vs. time tradeoff.
+
+Adjacency Matrix: Use this when you need to access the edge a[i][j]as an O(1) lookup often. In a sparse graph most entries will be 0 and waste a bunch of space. Space used is O(n2)
+
+Adjacency List: Space used is O(E) but finding an edge can be O(n) or O(log(n)) if you sort them.
+
+Most graphs are pretty sparse and typically n2>>e so adjacency lists are popular.
+ 
+ 
 #include<bits/stdc++.h>
 using namespace std;
 class Graph{
