@@ -4,7 +4,8 @@
 
 This is usually a space vs. time tradeoff.
 
-Adjacency Matrix: Use this when you need to access the edge a[i][j]as an O(1) lookup often. In a sparse graph most entries will be 0 and waste a bunch of space. Space used is O(n2)
+Adjacency Matrix: Use this when you need to access the edge a[i][j]as an O(1) lookup often. 
+In a sparse graph most entries will be 0 and waste a bunch of space. Space used is O(n2)
 
 Adjacency List: Space used is O(E) but finding an edge can be O(n) or O(log(n)) if you sort them.
 
