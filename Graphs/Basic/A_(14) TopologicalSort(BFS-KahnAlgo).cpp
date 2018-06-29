@@ -1,3 +1,7 @@
+Toplogical sorting--> It is a list such that if i appears in that list all it's dependencies must come before it
+in the list
+https://drive.google.com/open?id=1_Brl4WSE9Xt0tLF7ec1tfbKV8MCDeY1m
+
 https://drive.google.com/open?id=1flcmfwHebp7zD0PF-A77PthY715pYNDx
 https://drive.google.com/open?id=1jV_fUy6CHAo4-j6kUvDN0Mz0U-RSl65r
 #include<bits/stdc++.h>
