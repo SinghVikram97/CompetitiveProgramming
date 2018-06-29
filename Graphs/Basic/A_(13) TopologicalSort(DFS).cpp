@@ -1,5 +1,10 @@
+Toplogical sorting--> It is a list such that if i appears in that list all it's dependencies must come before it
+in the list
+https://drive.google.com/open?id=1_Brl4WSE9Xt0tLF7ec1tfbKV8MCDeY1m
+
 https://drive.google.com/open?id=1oTsnU4cRPRo3TgFDS6V_uBscZH6KUosB
 https://drive.google.com/open?id=1oTsnU4cRPRo3TgFDS6V_uBscZH6KUosB
+
 #include<bits/stdc++.h>
 using namespace std;
 template<typename T>
