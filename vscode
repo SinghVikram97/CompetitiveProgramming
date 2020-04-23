@@ -1,0 +1,67 @@
+{
+    "editor.snippetSuggestions": "top",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "files.autoSave": "onFocusChange",
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": false,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": " 'Dank Mono' ",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "500",
+    "terminal.integrated.fontSize": 16,
+    "explorer.openEditors.visible": 0,
+    "window.zoomLevel": 0,
+    "emmet.showAbbreviationSuggestions": true,
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#C6FF00",
+        "list.activeSelectionForeground": "#C6FF00",
+        "list.inactiveSelectionForeground": "#C6FF00",
+        "list.highlightForeground": "#C6FF00",
+        "scrollbarSlider.activeBackground": "#C6FF0050",
+        "editorSuggestWidget.highlightForeground": "#C6FF00",
+        "textLink.foreground": "#C6FF00",
+        "progressBar.background": "#C6FF00",
+        "pickerGroup.foreground": "#C6FF00",
+        "tab.activeBorder": "#C6FF00",
+        "notificationLink.foreground": "#C6FF00",
+    },
+    "eslint.validate": [
+        {
+            "language": "vue",
+            "autoFix": true
+        },
+        {
+            "language": "html",
+            "autoFix": true
+        },
+        {
+            "language": "javascript",
+            "autoFix": true
+        }
+    ],
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "workbench.startupEditor": "newUntitledFile",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "prettier.requireConfig": true,
+    "editor.formatOnSave": true,
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "vue-html": "html"
+    },
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
+    "html-css-class-completion.enableEmmetSupport": true,
+    "workbench.colorTheme": "CodeSandbox Black",
+    "editor.lineHeight": 0,
+    "editor.fontSize": 22,
+    "editor.suggest.localityBonus": true,
+    "material-icon-theme.activeIconPack": "react",
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "cpp": "cd $dir && g++ -std=c++11 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    },
+    "terminal.integrated.fontFamily": "monospace",
+}
